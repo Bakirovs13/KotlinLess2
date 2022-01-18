@@ -6,6 +6,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import kg.geektech.kotlinless2.Extensions.copyToClipboard
 import kg.geektech.kotlinless2.Extensions.load
 import kg.geektech.kotlinless2.databinding.ActivityMainBinding
 import kotlin.random.Random
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     private fun initListeners() {
 
         binding.clipboard.setOnClickListener {
-            copyToClipboard("https://t4.ftcdn.net/jpg/04/06/23/13/240_F_406231350_sPZSAkWgSH3yhgVzfuQ2tyNvWAThCKYv.jpg")
+           copyToClipboard("https://t4.ftcdn.net/jpg/04/06/23/13/240_F_406231350_sPZSAkWgSH3yhgVzfuQ2tyNvWAThCKYv.jpg")
             Toast.makeText(this,getString(R.string.toast_copy),Toast.LENGTH_LONG).show()
         }
 
@@ -51,9 +52,4 @@ class MainActivity : AppCompatActivity() {
        }
     }
 
-    private fun Context.copyToClipboard(text: CharSequence){
-        val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText("label",text)
-        clipboard.setPrimaryClip(clip)
-    }
 }

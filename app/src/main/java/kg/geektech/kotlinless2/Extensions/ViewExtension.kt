@@ -1,5 +1,6 @@
 package kg.geektech.kotlinless2.Extensions
 
+
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 
@@ -10,6 +11,4 @@ fun ImageView.load(resource:String){
         .load(resource)
         .centerCrop()
         .into(this)
-
-
 }
