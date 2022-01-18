@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KotlinLess2</string>
+    <string name="submit">Submit</string>
+    <string name="type_url">type url</string>
+    <string name="random">Random</string>
+    <string name="click_button_to_copy_example_url">*click button to copy example url*</string>
+    <string name="toast_copy">you copied example url</string>
+</resources>
