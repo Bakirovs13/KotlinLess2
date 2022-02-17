@@ -1,10 +1,9 @@
 package kg.geektech.kotlinless2
 
-import android.content.ClipData
-import android.content.ClipboardManager
-import android.content.Context
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.widget.Toast
 import kg.geektech.kotlinless2.Extensions.copyToClipboard
 import kg.geektech.kotlinless2.Extensions.load
@@ -33,16 +32,20 @@ class MainActivity : AppCompatActivity() {
     private fun initListeners() {
 
         binding.clipboard.setOnClickListener {
-           copyToClipboard("https://t4.ftcdn.net/jpg/04/06/23/13/240_F_406231350_sPZSAkWgSH3yhgVzfuQ2tyNvWAThCKYv.jpg")
+           copyToClipboard("https://cdn.pixabay.com/photo/2022/01/24/11/33/tulips-6963227_1280.jpg")
             Toast.makeText(this,getString(R.string.toast_copy),Toast.LENGTH_LONG).show()
         }
 
         binding.submitBtn.setOnClickListener{
-            if (binding.urlEt.text.isNotEmpty()){
+            if (binding.urlEt.text.isNotEmpty()&& Patterns.WEB_URL.matcher(binding.urlEt.text).matches()
+            ){
+                Toast.makeText(this, "url added to the list", Toast.LENGTH_SHORT).show()
                 val newUrl = binding.urlEt.text.toString()
                 marvelUrlList.add(newUrl)
                 binding.randomPhotoEv.load(newUrl)
                 binding.urlEt.text.clear()
+            }else{
+                Toast.makeText(this, "invalid link", Toast.LENGTH_SHORT).show()
             }
         }
 
